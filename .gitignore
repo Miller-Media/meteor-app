@@ -1,0 +1,5 @@
+build/*
+app/.meteor/platforms
+deploy/meteor-backend.pem
+node_modules
+**.DS_Store
