@@ -5,13 +5,28 @@
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer"
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "cordova-setup": "meteor add cordova:cordova-plugin-android-notch@1.0.3 cordova:cordova-plugin-ionic-keyboard@2.1.2 cordova:cordova-plugin-meteor-mods@1.0.5 cordova:cordova-plugin-splashscreen@5.0.3 cordova:cordova-plugin-statusbar@2.4.3 cordova:cordova-plugin-useragent@https://github.com/Miller-Media/cordova-plugin-useragent.git#71c3d7fee174aadf42f8977a39add0f294123df4 cordova:cordova-plugin-wkwebview-engine@1.2.1",
+    "atmosphere-setup": "meteor add less accounts-base accounts-password"
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.5",
-    "meteor-node-stubs": "^1.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@babel/runtime": "^7.8.4",
+    "animate.css": "^4.1.0",
+    "bcrypt": "^5.0.0",
+    "color": "^3.1.2",
+    "firebase": "^7.19.1",
+    "firebase-admin": "^9.1.1",
+    "firebaseui": "^4.6.1",
+    "html-entities": "^1.3.1",
+    "jquery": "^3.5.1",
+    "meteor-node-stubs": "^1.0.0",
+    "millermedia-meteor-core": "^0.2.7",
+    "onsenui": "^2.10.10",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-firebaseui": "^4.1.0",
+    "react-onsenui": "^1.11.2",
+    "suitcss-utils-flex": "^2.0.1"
   },
   "meteor": {
     "mainModule": {
