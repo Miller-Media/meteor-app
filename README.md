@@ -23,10 +23,12 @@ Run App Locally
 Install requirements and run the app locally with the following steps:
 
 5. `$ cd ./app`  
-6. `$ meteor npm install` (install required `npm` packages)
-7. `$ meteor npm run cordova-setup` (install required `cordova` plugins)
-8. `$ meteor npm run atmosphere-setup` (install required `atmosphere` packages)
-9. `$ meteor --settings {settings-file}.json` (e.g. `settings-staging.json`)
+6. `$ meteor npm install` - (install required `npm` packages)
+7. `$ meteor npm run cordova-setup` - (install required `cordova` plugins)
+8. `$ meteor npm run atmosphere-setup` - (install required `atmosphere` packages)
+9. `$ cp settings-example.json settings-staging.json` - (copy example settings file and update with real data)
+10. **IMPORTANT**: You must update the `settings-staging.json` file with `public.firebase` and `firebaseServiceAccount` info before proceeding. 
+11. `$ meteor --settings {settings-file}.json` - (e.g. `settings-staging.json`)
 
 Add Platforms
 ==========
