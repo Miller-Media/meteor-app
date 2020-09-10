@@ -45,19 +45,12 @@ Building, Deploying, & Releasing App
 ==========
 
 ```
-$ meteor build ../build --server=https://memberapp.trimhealthymama.com
+$ meteor build ../build --server=https://{my-app.my-domain.com}
 ```
 
 ```
 $ cd ./deploy/{staging or production}
 $ mup deploy
-```
-
-```
-$ cd ../releases/android
-$ cp ../../build/android/project/app/build/outputs/apk/release/app-release-unsigned.apk x.x.x-build.apk
-$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 x.x.x-build.apk thm-membership
-$ $ANDROID_HOME/build-tools/28.0.3/zipalign 4 x.x.x-build.apk x.x.x-release.apk
 ```
 
 See: https://millermedia.atlassian.net/wiki/spaces/ENG/pages/638255118/Building+Deploying
