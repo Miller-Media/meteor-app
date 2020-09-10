@@ -1,6 +1,6 @@
 {
     "public": {
-        "environment": "development",
+        "environment": "staging",
         "firebase": {
             "apiKey": "...",
             "authDomain": "...",
