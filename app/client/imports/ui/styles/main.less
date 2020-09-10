@@ -1,0 +1,231 @@
+@import "/imports/ui/styles/fonts.less";
+@import "/imports/ui/styles/colors.less";
+@import "/imports/ui/styles/typography.less";
+@import "/imports/ui/styles/utilities.less";
+@import "/imports/ui/styles/components/firebase-auth-container.less";
+
+body {
+	background-color: @white;
+	font-family: @main-body-font;
+}
+
+/* Notched device override */
+@media( orientation: portrait ) {
+	html[notched-layout-portrait] {
+		& .toolbar:not(.toolbar--cover-content) {
+			& + .page__background {
+				& + .page__content {
+					top: calc(var(--knockout-top-area) + 44px);
+				}
+			}
+		}
+	}
+}
+
+/* Toolbar */
+ons-page.page {
+	ons-toolbar.toolbar {
+		background: @white;
+		box-shadow: @toolbarShadow;
+		font-family: @main-body-font-semibold;
+
+		& .toolbar-button, .toolbar-button--material {
+			font-family: @main-body-font-semibold;
+			font-size: 17px;
+		}
+
+		& > .toolbar__left {
+			& > .back-button {
+				& > .back-button__icon {
+					fill: @darkBlue;
+				}
+			}
+			& > .toolbar-button {
+				color: @darkBlue;
+			}
+		}
+
+		& > .toolbar__right {
+			& > .toolbar-button {
+				color: @darkBlue;
+			}
+		}
+
+		& > .toolbar__center {
+			&.toolbar__title,
+			&.toolbar-title,
+			&.toolbar--material__center {
+				color: @darkGray!important;
+				font-size: 17px;
+			}
+		}
+	}
+}
+.toolbar-icon {
+	color: @darkBlue;
+	font-size: 20px;
+}
+.toolbar-logo {
+	width: 172px;
+}
+
+/* Tabbar */
+.tabbar {
+	background-color: @backgroundColor;
+	box-shadow: @toolbarShadow;
+
+	.tabbar__item {
+		.tabbar__button {
+			color: @darkGray;
+		}
+
+		&.active {
+			.tabbar__button {
+				color: @darkBlue;
+			}
+		}
+	}
+}
+
+/* Buttons */
+.thm-button {
+	width: 100%;
+	height: 50px;
+	border-radius: 20px;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+	color: @darkGray;
+	font-weight: 600;
+	font-family: @main-body-font-bold;
+	padding: 8px;
+	font-size: 20px;
+	text-transform: capitalize;
+
+	&.branded {
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: center;
+		height: 60px;
+		line-height: 60px;
+		box-shadow: none;
+		background: linear-gradient(to bottom, @brandColor, @darkBlue);
+		padding: 0;
+		color: @white;
+
+		i {
+			font-size: 22px;
+			margin-right: 10px;
+		}
+	}
+}
+.thm-button-light {
+	background-color: @white;
+}
+
+/* Onsen Overrides */
+.ons-icon.fa {
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 300;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+
+	> .page__background {
+		background-color: @white;
+	}
+
+	> .page__content {
+		padding-bottom: 0 !important;
+		overflow: hidden;
+	}
+
+	.welcome {
+		text-align: center;
+		font-size: 1.2em;
+		color: @darkGray;
+		margin: 0;
+		background-color: @white;
+	}
+
+	@media screen and (max-height: 570px) {
+		.welcome {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (max-height: 800px) {
+		.description .desc {
+			display: none !important;
+		}
+	}
+
+	.logo {
+		margin-top: 5vh;
+		max-width: 60%;
+	}
+
+	.caption {
+		margin: 10px;
+	}
+
+	.hero {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: auto;
+	}
+
+	.description {
+		line-height: 1.2em;
+		margin: -1px 0 -30px;
+		padding: 10px 10px 60px;
+		background-color: @gray;
+		color: @white;
+	}
+}
+
+/* Login Screen */
+.login {
+	.logo {
+		margin: 5vh auto 3vh;
+		max-width: 60%;
+	}
+	.message {
+		transform: scale(1);
+		height: 140px;
+		transition: cubic-bezier(.25,1.5,1,1) 400ms all;
+
+		&.hide {
+			transform: scale(0);
+			height: 0px;
+			transition: cubic-bezier(.5,-0.5,.5,1) 400ms all;
+		}
+	}
+}
+
+/* Icons */
+.circle-icon-background {
+    background: transparent;
+	border-radius: 50%;
+	border: 7px solid @gray;
+	vertical-align: middle;
+	text-align: middle;
+	width: 80px;
+	height: 80px;
+	padding: 25px;
+	margin: 10px auto;
+
+	.ons-icon {
+		color: @gray;
+	}
+}
+
+/* Inputs */
+.search-field-input {
+	border: 1px solid @gray;
+    border-radius: 8px;
+    padding: 2px 10px;
+	background-color: @white;
+	box-sizing: border-box;
+}
