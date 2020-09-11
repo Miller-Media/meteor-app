@@ -9,7 +9,7 @@ import firebaseui from 'firebaseui';
 import { BaseScreen, meteor_call } from 'millermedia-meteor-core';
 import MainScreen from '/imports/ui/screens/main/Main';
 
-import FirebaseAuthContainer from '/imports/ui/components/FirebaseAuthContainer';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 export default class LoginScreen extends BaseScreen {
 	
@@ -55,8 +55,6 @@ export default class LoginScreen extends BaseScreen {
 				}
 			});
 		}
-
-		this.firebase = React.createRef();
 	}
 
 	/**
@@ -66,15 +64,6 @@ export default class LoginScreen extends BaseScreen {
 	 */
 	componentDidMount() {
 		sessionStorage.setItem('doingLogin', 'true');
-
-		const fb = ReactDOM.findDOMNode(this.firebase.current);
-		this.observer = new MutationObserver(this.observerCallback);
-
-		this.observer.observe( fb, {
-			childList: true,
-			subtree: true
-		});
-
 		window.addEventListener(this.unloadEvent, this.disableStatusBarOverlay);
 	}
 
@@ -96,38 +85,6 @@ export default class LoginScreen extends BaseScreen {
 	disableStatusBarOverlay() {
 		if ( window.StatusBar ) {
 			StatusBar.overlaysWebView(false);
-		}
-	}
-
-	/**
-	 * Perform logic based on changes to the DOM element passed
-	 * to `this.observer.observe()`.
-	 * 
-	 * In this case, we're watching for a certain `<div>` to be
-	 * added/removed and updating the `hideMessage` state.
-	 * 
-	 * @param {array} mutations 
-	 */
-	observerCallback = mutations => {
-		for( let mutation of mutations ) {
-			
-			for( let node of mutation.addedNodes ) {
-				if ( !(node instanceof HTMLElement) ) 
-					continue;
-
-				if ( node.matches('div[class*="mdl-card"]') ) {
-					this.setState({ hideMessage: true });
-				}
-			}
-
-			for( let node of mutation.removedNodes ) {
-				if ( !(node instanceof HTMLElement) ) 
-					continue;
-
-				if ( node.matches('div[class*="mdl-card"]') ) {
-					this.setState({ hideMessage: false });
-				}
-			}
 		}
 	}
 	
@@ -163,8 +120,7 @@ export default class LoginScreen extends BaseScreen {
 						Sign in or create a new account:
 					</h4>
 				</div>
-				<FirebaseAuthContainer 
-					ref={this.firebase}
+				<StyledFirebaseAuth
 					uiConfig={this.firebaseUIConfig} 
 					firebaseAuth={client.firebase.auth()}
 				/>
